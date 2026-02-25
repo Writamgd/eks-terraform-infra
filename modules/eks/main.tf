@@ -4,9 +4,14 @@ module "eks" {
 
   cluster_name    = var.cluster_name
   cluster_version = "1.29"
-
+  
   vpc_id     = var.vpc_id
   subnet_ids = var.subnet_ids
+  
+  cluster_endpoint_public_access  = true
+  cluster_endpoint_private_access = true
+
+  
 
   eks_managed_node_groups = {
     default = {
