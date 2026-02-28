@@ -20,7 +20,7 @@ resource "aws_ecr_lifecycle_policy" "repo_policy" {
         selection = {
           tagStatus   = "any"
           countType   = "imageCountMoreThan"
-          countNumber = 20
+          countNumber = var.image_retention_count
         }
         action = {
           type = "expire"
